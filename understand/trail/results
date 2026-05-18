@@ -1,0 +1,58 @@
+
+================================================================================================================================
+SUMMARY  shape=(4096,4096)  baseline=torch.float16  elems=16,777,216  ~0.031 GiB/iter  bench_iters=10
+================================================================================================================================
+case_id                                    ok   mse_fp16   rel_mse   max_err  torch_ms    tri_ms   spdup  note
+--------------------------------------------------------------------------------------------------------------
+fp8e4m3_exp_ptensor_triton_vs_torch      PASS    0.08909 0.0002351     72.93     0.928     0.197    4.7x  
+fp8e4m3_exp_pchan_triton_vs_torch        PASS    0.04138 0.0001092     72.93     0.927     0.186    5.0x  
+fp8e4m3_exp_blk128_triton_vs_torch       PASS     0.0416 0.0001098     61.93     0.943     0.204    4.6x  
+fp8e5m2_exp_ptensor_triton_vs_torch      PASS     0.3407  0.000899     145.3     0.928     0.196    4.7x  
+fp8e5m2_exp_pchan_triton_vs_torch        PASS     0.1709 0.0004511     145.3     0.926     0.186    5.0x  
+fp8e5m2_exp_blk128_triton_vs_torch       PASS     0.1575 0.0004157     130.9     0.942     0.204    4.6x  
+nvfp4_exp_ptensor_triton_vs_torch        PASS      123.2    0.3251      1886     0.951     0.220    4.3x  
+nvfp4_exp_pchan_triton_vs_torch          PASS      62.27    0.1643      1886     0.950     0.211    4.5x  
+nvfp4_exp_blk128_triton_vs_torch         PASS      2.672   0.00705      1438     0.971     0.235    4.1x  
+nvfp4plus_exp_ptensor_triton_vs_torch    PASS      123.2    0.3251      1886     0.992     0.251    4.0x  
+nvfp4plus_exp_pchan_triton_vs_torch      PASS      62.27    0.1643      1886     0.977     0.237    4.1x  
+nvfp4plus_exp_blk128_triton_vs_torch     PASS      2.677  0.007063      1438     1.001     0.263    3.8x  
+e4m3_cast_ptensor_torch_only             PASS    0.08909 0.0002351     72.93     0.201         —       —  torch-only
+e4m3_cast_pchan_torch_only               PASS    0.04138 0.0001092     72.93     0.202         —       —  torch-only
+e4m3_cast_blk128_triton_vs_torch         PASS     0.0827 0.0002182     62.93    40.477     0.282  143.7x  
+e5m2_cast_ptensor_torch_only             PASS     0.3407  0.000899     145.3     0.201         —       —  torch-only
+e5m2_cast_pchan_torch_only               PASS     0.1709 0.0004511     145.3     0.202         —       —  torch-only
+e5m2_cast_blk128_triton_vs_torch         PASS     0.3192 0.0008424     133.6    36.414     0.282  129.2x  
+--------------------------------------------------------------------------------------------------------------
+ok: kernel + vs_fp16   mse_fp16/rel_mse/max_err = ||rq-x|| vs fp16 baseline (torch quant)   spdup = torch_ms/triton_ms
+
+All checks passed.
+
+
+
+
+================================================================================================================================
+SUMMARY  shape=(4096,4096)  baseline=torch.float16  elems=16,777,216  ~0.031 GiB/iter  bench_iters=100
+================================================================================================================================
+case_id                                    ok   mse_fp16   rel_mse   max_err  torch_ms    tri_ms   spdup  note
+--------------------------------------------------------------------------------------------------------------
+fp8e4m3_exp_ptensor_triton_vs_torch      PASS    0.08909 0.0002351     72.93     0.933     0.196    4.8x  
+fp8e4m3_exp_pchan_triton_vs_torch        PASS    0.04138 0.0001092     72.93     0.925     0.185    5.0x  
+fp8e4m3_exp_blk128_triton_vs_torch       PASS     0.0416 0.0001098     61.93     0.942     0.203    4.6x  
+fp8e5m2_exp_ptensor_triton_vs_torch      PASS     0.3407  0.000899     145.3     0.928     0.196    4.7x  
+fp8e5m2_exp_pchan_triton_vs_torch        PASS     0.1709 0.0004511     145.3     0.925     0.186    5.0x  
+fp8e5m2_exp_blk128_triton_vs_torch       PASS     0.1575 0.0004157     130.9     0.942     0.203    4.6x  
+nvfp4_exp_ptensor_triton_vs_torch        PASS      123.2    0.3251      1886     0.950     0.218    4.3x  
+nvfp4_exp_pchan_triton_vs_torch          PASS      62.27    0.1643      1886     0.950     0.210    4.5x  
+nvfp4_exp_blk128_triton_vs_torch         PASS      2.672   0.00705      1438     0.971     0.234    4.1x  
+nvfp4plus_exp_ptensor_triton_vs_torch    PASS      123.2    0.3251      1886     0.990     0.250    4.0x  
+nvfp4plus_exp_pchan_triton_vs_torch      PASS      62.27    0.1643      1886     0.975     0.236    4.1x  
+nvfp4plus_exp_blk128_triton_vs_torch     PASS      2.677  0.007063      1438     0.999     0.261    3.8x  
+e4m3_cast_blk128_triton_vs_torch         PASS     0.0827 0.0002182     62.93    39.868     0.279  142.9x  
+e5m2_cast_blk128_triton_vs_torch         PASS     0.3192 0.0008424     133.6    37.899     0.279  136.0x  
+
+e4m3_cast_ptensor_torch_only             PASS    0.08909 0.0002351     72.93     0.200         —       —  torch-only
+e4m3_cast_pchan_torch_only               PASS    0.04138 0.0001092     72.93     0.202         —       —  torch-only
+e5m2_cast_ptensor_torch_only             PASS     0.3407  0.000899     145.3     0.200         —       —  torch-only
+e5m2_cast_pchan_torch_only               PASS     0.1709 0.0004511     145.3     0.201         —       —  torch-only
+--------------------------------------------------------------------------------------------------------------
+ok: kernel + vs_fp16   mse_fp16/rel_mse/max_err = ||rq-x|| vs fp16 baseline (torch quant)   spdup = torch_ms/triton_ms

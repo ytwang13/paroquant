@@ -20,7 +20,7 @@ python3 optimize.py \
     --val-dataset pileval \
     --train-size 256 \
     --validation-size 64 \
-    --batch-size 16 \
+    --batch-size 8 \
     --seqlen 2048 \
     --cache-shards $shards \
     --output-dir ./output \

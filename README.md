@@ -48,16 +48,7 @@ You may need to modify [`requirements.txt`](requirements.txt) to match your CUDA
 First, run the optimization script to obtain the optimized checkpoints. The checkpoints will be stored in `output/<model_name>`.
 
 ```bash
-
-### log
- - add hf_home
- - use only wiki data
- - use 256 train size/ bsz8?
- - use 4b smaller model
- - investigate why oom, where is the bottleneck?
-export HF_HOME=/mnt/hdd/wyt/hf
-experiments/optimize/4bit.sh Qwen/Qwen3-4B
-experiments/optimize/4bit.sh Qwen/Qwen3-8B
+experiments/optimize/4bit.sh Qwen/Qwen3-8B 
 ```
 
 Then, create a huggingface model with pseudo quantization (*i.e.,* model weights are in FP16 simulating the quantization) or real quantization (*i.e.*, model weights are in INT4):
