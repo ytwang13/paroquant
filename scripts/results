@@ -1,0 +1,12 @@
+|    Tasks    |Version|Filter|n-shot| Metric |   |Value |   |Stderr|
+|-------------|------:|------|-----:|--------|---|-----:|---|-----:|
+|arc_challenge|      1|none  |     0|acc     |↑  |0.5009|±  |0.0146|
+|             |       |none  |     0|acc_norm|↑  |0.5230|±  |0.0146|
+|arc_easy     |      1|none  |     0|acc     |↑  |0.7980|±  |0.0082|
+|             |       |none  |     0|acc_norm|↑  |0.7748|±  |0.0086|
+|boolq        |      2|none  |     0|acc     |↑  |0.8456|±  |0.0063|
+|hellaswag    |      1|none  |     0|acc     |↑  |0.5116|±  |0.0050|
+|             |       |none  |     0|acc_norm|↑  |0.6749|±  |0.0047|
+
+wikitext2 perplexity: 13.956838607788086
+c4 perplexity: 17.002471923828125

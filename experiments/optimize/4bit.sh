@@ -16,13 +16,31 @@ python3 optimize.py \
     --group-size 128 \
     --n-bit 4 \
     --num-rotations 8 \
-    --datasets wikitext2 c4 redpajama \
+    --datasets wikitext2 \
     --val-dataset pileval \
-    --train-size 2048 \
+    --train-size 256 \
     --validation-size 64 \
     --batch-size 16 \
     --seqlen 2048 \
     --cache-shards $shards \
     --output-dir ./output \
-    --resume \
     --seed 0
+
+# 
+# python3 optimize.py \
+#     --model $model_path \
+#     --params "channel_scales:0.05,angles:0.05" "weight:1e-5,quantizer:1e-6" \
+#     --epochs 10 10 \
+#     --group-size 128 \
+#     --n-bit 4 \
+#     --num-rotations 8 \
+#     --datasets wikitext2 c4 redpajama \
+#     --val-dataset pileval \
+#     --train-size 2048 \
+#     --validation-size 64 \
+#     --batch-size 16 \
+#     --seqlen 2048 \
+#     --cache-shards $shards \
+#     --output-dir ./output \
+#     --resume \
+#     --seed 0
